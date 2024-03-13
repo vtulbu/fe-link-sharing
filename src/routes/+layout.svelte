@@ -8,9 +8,16 @@
 
 <style>
 	main {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
 		height: 100vh;
+		min-width: 375px;
+		background-color: #fafafa;
+	}
+
+	@media (min-width: 768px) {
+		main {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
 	}
 </style>
