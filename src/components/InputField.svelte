@@ -12,12 +12,11 @@
 <Label class="mb-2 block text-xs text-colors-mine-shaft-default">
 	{label}
 </Label>
-<Input class="mb-6" {id} {type} {placeholder}>
+<Input
+	class="mb-6 placeholder-colors-mine-shaft-default placeholder-opacity-50"
+	{id}
+	{type}
+	{placeholder}
+>
 	<slot slot="left" name="icon" />
 </Input>
-
-<style>
-	input {
-		border: solid 1px red !important;
-	}
-</style>
