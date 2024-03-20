@@ -30,6 +30,10 @@
 		font-size: 16px;
 		font-weight: 600;
 		line-height: 24px;
+		white-space: nowrap;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.selected {

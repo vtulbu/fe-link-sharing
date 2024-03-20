@@ -2,6 +2,7 @@
 	import LinkNav from '../../components/LinkNav.svelte';
 	import { page } from '$app/stores';
 	import { links } from '../../constants';
+	import Button from '../../components/Button.svelte';
 
 	type LinksKey = (typeof links)[number]['href'];
 
@@ -13,19 +14,28 @@
 </script>
 
 <header>
-	<img src="icons/logo-devlinks-small.svg" alt="logo" class="mr-auto md:hidden" />
-	<img src="icons/logo-devlinks-large.svg" alt="logo" class="mr-auto hidden md:block" />
-	{#each links as { href, icon, name }}
-		<LinkNav {href} selected={$page.url.pathname === href} className={classNames[href]}>
-			<img
-				src={`icons/${icon}`}
-				alt={name}
-				class={href === '/preview' ? 'md:hidden' : ''}
-				slot="icon"
-			/>
-			<span slot="text" class="hidden md:block">{name}</span>
+	{#if $page.url.pathname === '/preview'}
+		<LinkNav href="/links" className={'w-[160px] h-[46px] border border-colors-primary-default'}>
+			<span slot="text">Back to Editor</span>
 		</LinkNav>
-	{/each}
+		<Button onClick={() => console.log('Logout clicked')} className={'mb-0 w-[160px]'}>
+			Share Link
+		</Button>
+	{:else}
+		<img src="icons/logo-devlinks-small.svg" alt="logo" class="mr-auto md:hidden" />
+		<img src="icons/logo-devlinks-large.svg" alt="logo" class="mr-auto hidden md:block" />
+		{#each links as { href, icon, name }}
+			<LinkNav {href} selected={$page.url.pathname === href} className={classNames[href]}>
+				<img
+					src={`icons/${icon}`}
+					alt={name}
+					class={href === '/preview' ? 'md:hidden' : ''}
+					slot="icon"
+				/>
+				<span slot="text" class="hidden md:block">{name}</span>
+			</LinkNav>
+		{/each}
+	{/if}
 </header>
 <slot />
 

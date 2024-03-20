@@ -16,7 +16,8 @@
 	@media (min-width: 768px) {
 		main {
 			display: flex;
-			justify-content: center;
+			flex-direction: column;
+			/* justify-content: center; */
 			align-items: center;
 		}
 	}
