@@ -37,7 +37,9 @@
 		{/each}
 	{/if}
 </header>
-<slot />
+<main>
+	<slot />
+</main>
 
 <style>
 	header {
@@ -47,13 +49,24 @@
 		padding: 16px;
 		width: 100%;
 		max-width: 1400px;
+		background-color: #fff;
+		border-radius: 12px;
 	}
 
 	:global(header div:last-of-type a) {
 		color: #633cff;
 	}
 
+	main {
+		margin: 16px;
+		padding: 24px;
+		background-color: #fff;
+	}
+
 	@media (min-width: 768px) {
+		main {
+			padding: 40px 40px 0 40px;
+		}
 		header {
 			padding: 16px 24px;
 			margin: 24px;
