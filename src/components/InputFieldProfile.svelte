@@ -9,14 +9,23 @@
 	export let id: string = '';
 </script>
 
-<Label class="mb-2 block text-xs text-colors-mine-shaft-default">
-	{label}
-</Label>
-<Input
-	class="mb-6 bg-white placeholder-colors-mine-shaft-default placeholder-opacity-50"
-	{id}
-	{type}
-	{placeholder}
->
-	<slot slot="left" name="icon" />
-</Input>
+<div>
+	<Label class="mb-2 block text-base text-colors-dove-gray-default md:w-1/2">
+		{label}
+	</Label>
+	<Input
+		class="mb-3 bg-white placeholder-colors-mine-shaft-default placeholder-opacity-50"
+		{id}
+		{type}
+		{placeholder}
+	/>
+</div>
+
+<style>
+	@media (min-width: 768px) {
+		div {
+			display: flex;
+			align-items: center;
+		}
+	}
+</style>
