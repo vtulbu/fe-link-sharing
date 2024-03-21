@@ -16,4 +16,4 @@
 
 <Button onClick={() => console.log('Login clicked')}>Login</Button>
 
-<ActionText href="/create-account" text="Don’t have an account?" link="Create one" />
+<ActionText href="/create-account" text="Don’t have an account?" link="Create account" />

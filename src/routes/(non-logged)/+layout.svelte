@@ -1,36 +1,42 @@
-<div class="bg-white">
-	<header>
+<div class="bg-colors-alabaster-default">
+	<main class="bg-white">
 		<img src="icons/logo-devlinks-large.svg" alt="devlinks logo" />
-	</header>
-	<slot />
+		<slot />
+	</main>
 </div>
 
 <style>
-	div {
-		padding: 32px;
-		max-width: 475px;
-		margin: auto;
+	img {
+		margin-bottom: 64px;
+		width: 180px;
 	}
 
-	header {
-		margin-bottom: 64px;
+	main {
+		padding: 40px;
 	}
 
 	@media (min-width: 768px) {
-		header {
+		img {
 			position: absolute;
-			margin-bottom: unset;
 			top: -70px;
 			left: 0;
 			right: 0;
-			display: flex;
-			justify-content: center;
-			align-items: center;
+			margin: 0 auto;
+		}
+
+		main {
+			position: relative;
+			width: 475px;
+			border-radius: 12px;
 		}
 
 		div {
-			position: relative;
+			height: 100vh;
+
 			padding: 40px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 	}
 </style>
