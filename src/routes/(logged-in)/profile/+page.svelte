@@ -5,10 +5,12 @@
 	import ProfilePicture from '../../../components/ProfilePicture.svelte';
 </script>
 
-<Description
-	heading="Profile Details"
-	description="Add your details to create a personal touch to your profile."
-/>
-<ProfilePicture />
-<ProfileData />
+<div id="content-page">
+	<Description
+		heading="Profile Details"
+		description="Add your details to create a personal touch to your profile."
+	/>
+	<ProfilePicture />
+	<ProfileData />
+</div>
 <BottomSaveButton />

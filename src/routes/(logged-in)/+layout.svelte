@@ -57,19 +57,24 @@
 		color: #633cff;
 	}
 
-	main {
-		margin: 16px;
-		padding: 24px;
+	:global(#content-page) {
 		background-color: #fff;
+		padding: 24px;
+		border-radius: 12px 12px 0 0;
+	}
+
+	main {
+		height: 100%;
 	}
 
 	@media (min-width: 768px) {
-		main {
-			padding: 40px 40px 0 40px;
-		}
 		header {
 			padding: 16px 24px;
-			margin: 24px;
+			margin-bottom: 24px;
+		}
+
+		:global(#content-page) {
+			padding: 40px;
 		}
 	}
 </style>

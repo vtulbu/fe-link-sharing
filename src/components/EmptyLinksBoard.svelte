@@ -37,7 +37,6 @@
 	@media (min-width: 768px) {
 		div {
 			padding: 80px;
-			margin-bottom: 40px;
 		}
 
 		h2 {

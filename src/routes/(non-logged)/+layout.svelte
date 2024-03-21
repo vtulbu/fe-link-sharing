@@ -1,9 +1,7 @@
-<div class="bg-colors-alabaster-default">
-	<main class="bg-white">
-		<img src="icons/logo-devlinks-large.svg" alt="devlinks logo" />
-		<slot />
-	</main>
-</div>
+<main class="bg-white">
+	<img src="icons/logo-devlinks-large.svg" alt="devlinks logo" />
+	<slot />
+</main>
 
 <style>
 	img {
@@ -13,6 +11,7 @@
 
 	main {
 		padding: 40px;
+		height: 100%;
 	}
 
 	@media (min-width: 768px) {
@@ -28,15 +27,8 @@
 			position: relative;
 			width: 475px;
 			border-radius: 12px;
-		}
-
-		div {
-			height: 100vh;
-
-			padding: 40px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
+			height: fit-content;
+			margin: auto;
 		}
 	}
 </style>

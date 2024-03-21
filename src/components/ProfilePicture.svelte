@@ -26,7 +26,7 @@
 		line-height: 150%; /* 24px */
 	}
 
-	p:nth-child(2) {
+	p:nth-of-type(2) {
 		font-size: 12px;
 		line-height: 150%; /* 18px */
 	}
@@ -39,7 +39,11 @@
 		}
 
 		p {
-			width: 150px;
+			width: 130px;
+		}
+
+		p:first-of-type {
+			flex: 1;
 		}
 	}
 </style>

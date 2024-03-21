@@ -10,9 +10,10 @@
 	div {
 		display: flex;
 		justify-content: flex-end;
-		margin-top: 24px;
 		border-top: 1px solid var(--Borders, #d9d9d9);
 		padding: 16px;
+		background-color: #fff;
+		border-radius: 0 0 12px 12px;
 	}
 
 	@media (min-width: 768px) {

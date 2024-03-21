@@ -5,7 +5,7 @@
 	import EmptyLinksBoard from '../../../components/EmptyLinksBoard.svelte';
 </script>
 
-<div>
+<div id="content-page">
 	<Description
 		heading="Customize your links"
 		description="Add/edit/remove links below and then share all your profiles with the world!"
@@ -14,5 +14,5 @@
 		+ Add new link
 	</Button>
 	<EmptyLinksBoard />
-	<BottomSaveButton />
 </div>
+<BottomSaveButton />
