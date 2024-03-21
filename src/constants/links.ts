@@ -1,7 +1,7 @@
 export default [
 	{
 		name: 'Links',
-		icon: 'link.svg',
+		icon: 'icon-links-header.svg',
 		href: '/links'
 	},
 	{
