@@ -1,17 +1,19 @@
+import { IconLinksHeader, ProfileDetailsHeader, PreviewHeader } from '../components/icons';
+
 export default [
 	{
 		name: 'Links',
-		icon: 'icon-links-header.svg',
+		icon: IconLinksHeader,
 		href: '/links'
 	},
 	{
 		name: 'Profile Details',
-		icon: 'profile-details-header.svg',
+		icon: ProfileDetailsHeader,
 		href: '/profile'
 	},
 	{
 		name: 'Preview',
-		icon: 'preview-header.svg',
+		icon: PreviewHeader,
 		href: '/preview'
 	}
 ] as const;

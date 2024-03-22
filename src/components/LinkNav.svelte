@@ -44,8 +44,16 @@
 		color: #633cff;
 	}
 
-	a:hover {
+	:global(.selected svg) {
+		fill: #633cff;
+	}
+
+	div:hover a {
 		color: #633cff;
+	}
+
+	div:hover :global(svg) {
+		fill: #633cff;
 	}
 
 	@media (min-width: 768px) {

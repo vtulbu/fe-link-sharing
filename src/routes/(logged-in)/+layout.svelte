@@ -36,12 +36,13 @@
 		<img src="icons/logo-devlinks-large.svg" alt="logo" class="mr-auto hidden md:block" />
 		{#each links as { href, icon, name }}
 			<LinkNav {href} selected={$page.url.pathname === href} className={classNames[href]}>
-				<img
+				<!-- <img
 					src={`icons/${icon}`}
 					alt={name}
 					class={href === '/preview' ? 'md:hidden' : ''}
 					slot="icon"
-				/>
+				/> -->
+				<svelte:component this={icon} slot="icon" />
 				<span slot="text" class="hidden md:block">{name}</span>
 			</LinkNav>
 		{/each}
