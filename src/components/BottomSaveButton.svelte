@@ -19,6 +19,8 @@
 	@media (min-width: 768px) {
 		div {
 			padding: 24px 40px;
+			max-width: 1400px;
+			margin: auto;
 		}
 	}
 </style>

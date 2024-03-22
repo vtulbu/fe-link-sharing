@@ -3,6 +3,7 @@
 	import { page } from '$app/stores';
 	import { links } from '../../constants';
 	import Button from '../../components/Button.svelte';
+	import { isToastOpen } from '../../stores';
 
 	type LinksKey = (typeof links)[number]['href'];
 
@@ -11,6 +12,17 @@
 		[links[1].href]: '',
 		[links[2].href]: 'ml-auto border border-colors-primary-default color-[red]'
 	};
+
+	const onClickShareLinkBtn = () => {
+		navigator.clipboard.writeText(window.location.href);
+		isToastOpen.set(true);
+
+		const id = setTimeout(() => {
+			isToastOpen.set(false);
+		}, 2000);
+
+		return () => clearTimeout(id);
+	};
 </script>
 
 <header>
@@ -18,9 +30,7 @@
 		<LinkNav href="/links" className={'w-[160px] h-[46px] border border-colors-primary-default'}>
 			<span slot="text">Back to Editor</span>
 		</LinkNav>
-		<Button onClick={() => console.log('Logout clicked')} className={'mb-0 w-[160px]'}>
-			Share Link
-		</Button>
+		<Button onClick={onClickShareLinkBtn} className={'mb-0 w-[160px]'}>Share Link</Button>
 	{:else}
 		<img src="icons/logo-devlinks-small.svg" alt="logo" class="mr-auto md:hidden" />
 		<img src="icons/logo-devlinks-large.svg" alt="logo" class="mr-auto hidden md:block" />
@@ -51,6 +61,8 @@
 		max-width: 1400px;
 		background-color: #fff;
 		border-radius: 12px;
+		z-index: 10;
+		margin: 0 auto;
 	}
 
 	:global(header div:last-of-type a) {
@@ -75,6 +87,8 @@
 
 		:global(#content-page) {
 			padding: 40px;
+			max-width: 1400px;
+			margin: auto;
 		}
 	}
 </style>
