@@ -1,12 +1,17 @@
 <script>
-	import InputField from './InputField.svelte';
+	import { profileData } from '../stores';
 	import InputFieldProfile from './InputFieldProfile.svelte';
 </script>
 
 <div>
-	<InputFieldProfile label="First Name" placeholder="John Doe" />
-	<InputFieldProfile label="Last Name" placeholder="Smith" />
-	<InputFieldProfile label="Email" placeholder="email@email.com" />
+	<InputFieldProfile
+		label="First Name"
+		placeholder="John Doe"
+		bind:value={$profileData.firstName}
+	/>
+	<InputFieldProfile label="Last Name" placeholder="Smith" bind:value={$profileData.lastName} />
+
+	<InputFieldProfile label="Email" placeholder="email@email.com" bind:value={$profileData.email} />
 </div>
 
 <style>

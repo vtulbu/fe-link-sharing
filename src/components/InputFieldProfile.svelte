@@ -3,6 +3,7 @@
 	import Input from 'flowbite-svelte/Input.svelte';
 	import type { InputProps } from 'flowbite-svelte/Input.svelte';
 
+	export let value = '';
 	export let label: string = '';
 	export let type: InputProps['type'] = 'text';
 	export let placeholder: string = '';
@@ -18,6 +19,7 @@
 		{id}
 		{type}
 		{placeholder}
+		bind:value
 	/>
 </div>
 

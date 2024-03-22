@@ -2,38 +2,43 @@
 	import { Avatar } from 'flowbite-svelte';
 	import LinkElement from '../../../components/LinkElement.svelte';
 	import CopyLinkToast from '../../../components/CopyLinkToast.svelte';
-	export let src = '';
-	export let name = '';
-	export let email = '';
+	import { linksData, profileData } from '../../../stores';
+	import { platformColors, platforms } from '../../../constants';
+	import Icon from '../../../components/Icon.svelte';
 </script>
 
 <div class="content">
-	<Avatar {src} border class="mb-6 h-28 w-28 ring-4 ring-colors-primary-default" />
-	<p class="text-[32px] font-bold">{name}</p>
+	<Avatar
+		src={$profileData.avatar}
+		border
+		class="mb-6 h-28 w-28 ring-4 ring-colors-primary-default"
+	/>
+	<p class="text-[32px] font-bold">
+		{$profileData.firstName}
+		{$profileData.lastName}
+	</p>
 
 	<p class="mb-14 mt-2 text-[16px] font-normal leading-[150%] text-colors-dove-gray-default">
-		{email}
+		{$profileData.email}
 	</p>
-	<LinkElement
-		href="https://www.linkedin.com/in/username"
-		--link-color="red"
-		platformName="LinkedIn"
-	>
-		<img slot="icon" src="icons/icon-linkedin.svg" alt="linkedin icon" />
-	</LinkElement>
-	<LinkElement
-		href="https://www.linkedin.com/in/username"
-		--link-color="black"
-		platformName="LinkedIn"
-	>
-		<img slot="icon" src="icons/icon-linkedin.svg" alt="linkedin icon" />
-	</LinkElement>
+	{#each $linksData.slice(0, 5) as link}
+		<LinkElement
+			className="mb-5"
+			--height="56px"
+			--width="240px"
+			href={link.link}
+			--link-color={platformColors[link.platform] || '#000'}
+			platformName={platforms.find((platform) => platform.value === link.platform)?.name ||
+				'Unknown'}
+		>
+			<Icon slot="icon" bind:name={link.platform} fill={'#fff'} />
+		</LinkElement>
+	{/each}
 
 	<CopyLinkToast />
 </div>
 
 <style>
-
 	.content {
 		height: 100%;
 		padding: 48px 56px;
