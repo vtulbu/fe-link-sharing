@@ -8,7 +8,6 @@
 	export let label: string = '';
 	export let type: InputProps['type'] = 'text';
 	export let placeholder: string = '';
-	export let id: string = '';
 
 	const dispatch = createEventDispatcher();
 
@@ -28,7 +27,6 @@
 </Label>
 <Input
 	class="mb-6 bg-white placeholder-colors-mine-shaft-default placeholder-opacity-50"
-	{id}
 	{type}
 	{placeholder}
 	on:input={handleChange}
