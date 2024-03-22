@@ -33,9 +33,6 @@
 </div>
 
 <style>
-	#container-page {
-		height: 100%;
-	}
 
 	.content {
 		height: 100%;
