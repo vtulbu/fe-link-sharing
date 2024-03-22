@@ -1,9 +1,15 @@
 <script>
 	import Button from './Button.svelte';
+	export let disabled = false;
 </script>
 
 <div>
-	<Button onClick={() => console.log('Save clicked')} className={'mb-0 md:w-fit'}>Save</Button>
+	<Button 
+		onClick={() => console.log('Save clicked')} className={'mb-0 md:w-fit'}
+		{disabled}
+	>
+		Save
+	</Button>
 </div>
 
 <style>
