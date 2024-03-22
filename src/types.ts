@@ -19,3 +19,12 @@ export type Platform =
 	| 'youtube';
 
 export type LinksKey = (typeof links)[number]['href'];
+
+export type HEX = `#${string}`;
+
+export type Profile = {
+	firstName: string;
+	lastName: string;
+	email: string;
+	avatar: string;
+};
