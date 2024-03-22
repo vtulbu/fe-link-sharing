@@ -1,4 +1,8 @@
-<div>
+<script>
+	import { slide } from 'svelte/transition';
+</script>
+
+<div transition:slide>
 	<img src="icons/illustration-empty.svg" alt="Empty Links Board" class="w-[125px] md:w-[250px]" />
 	<h2>Let’s get you started</h2>
 	<p>

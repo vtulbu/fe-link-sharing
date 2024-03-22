@@ -7,31 +7,29 @@
 	export let email = '';
 </script>
 
-<div id="container-page">
-	<div class="content">
-		<Avatar {src} border class="mb-6 h-28 w-28 ring-4 ring-colors-primary-default" />
-		<p class="text-[32px] font-bold">{name}</p>
+<div class="content">
+	<Avatar {src} border class="mb-6 h-28 w-28 ring-4 ring-colors-primary-default" />
+	<p class="text-[32px] font-bold">{name}</p>
 
-		<p class="mb-14 mt-2 text-[16px] font-normal leading-[150%] text-colors-dove-gray-default">
-			{email}
-		</p>
-		<LinkElement
-			href="https://www.linkedin.com/in/username"
-			--link-color="red"
-			platformName="LinkedIn"
-		>
-			<img slot="icon" src="icons/icon-linkedin.svg" alt="linkedin icon" />
-		</LinkElement>
-		<LinkElement
-			href="https://www.linkedin.com/in/username"
-			--link-color="black"
-			platformName="LinkedIn"
-		>
-			<img slot="icon" src="icons/icon-linkedin.svg" alt="linkedin icon" />
-		</LinkElement>
+	<p class="mb-14 mt-2 text-[16px] font-normal leading-[150%] text-colors-dove-gray-default">
+		{email}
+	</p>
+	<LinkElement
+		href="https://www.linkedin.com/in/username"
+		--link-color="red"
+		platformName="LinkedIn"
+	>
+		<img slot="icon" src="icons/icon-linkedin.svg" alt="linkedin icon" />
+	</LinkElement>
+	<LinkElement
+		href="https://www.linkedin.com/in/username"
+		--link-color="black"
+		platformName="LinkedIn"
+	>
+		<img slot="icon" src="icons/icon-linkedin.svg" alt="linkedin icon" />
+	</LinkElement>
 
-		<CopyLinkToast />
-	</div>
+	<CopyLinkToast />
 </div>
 
 <style>
@@ -61,7 +59,7 @@
 			z-index: 1;
 		}
 
-		#container-page::before {
+		/* #container-page::before {
 			content: '';
 			position: absolute;
 			top: 0;
@@ -71,6 +69,7 @@
 			background-color: #633cff;
 			border-radius: 0 0 32px 32px;
 			box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.1);
-		}
+			transition: none !important;
+		} */
 	}
 </style>

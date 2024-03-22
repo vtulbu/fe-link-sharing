@@ -1,3 +1,5 @@
+import type { links } from './constants';
+
 export type Link = { platform: Platform; link: string };
 
 export type Platform =
@@ -15,3 +17,5 @@ export type Platform =
 	| 'twitch'
 	| 'twitter'
 	| 'youtube';
+
+export type LinksKey = (typeof links)[number]['href'];

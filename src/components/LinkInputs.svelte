@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { slide } from 'svelte/transition';
 	import { links } from '../stores';
 	import type { Link } from '../types';
 	import InputField from './InputField.svelte';
@@ -12,7 +13,7 @@
 	};
 </script>
 
-<div>
+<div transition:slide>
 	<img src="icons/icon-drag-and-drop.svg" alt="drag and drop icon" />
 	<p>
 		Link #{index + 1}
