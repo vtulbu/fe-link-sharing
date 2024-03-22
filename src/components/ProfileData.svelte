@@ -15,4 +15,10 @@
 		background: var(--Light-Grey, #fafafa);
 		padding: 20px;
 	}
+
+	@media (min-width: 1440px) {
+		div {
+			margin-bottom: 80px;
+		}
+	}
 </style>

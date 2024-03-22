@@ -46,4 +46,10 @@
 			flex: 1;
 		}
 	}
+
+	@media (min-width: 1440px) {
+		p {
+			width: 200px;
+		}
+	}
 </style>

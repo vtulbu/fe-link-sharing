@@ -7,6 +7,7 @@
 	import { fly } from 'svelte/transition';
 	import type { LinksKey } from '../../types';
 	import Icon from '../../components/Icon.svelte';
+	import PhoneView from '../../components/PhoneView.svelte';
 
 	export let data;
 
@@ -41,7 +42,7 @@
 		<img src="icons/logo-devlinks-large.svg" alt="logo" class="mr-auto hidden md:block" />
 		{#each links as { href, name }}
 			<LinkNav {href} selected={$page.url.pathname === href} className={classNames[href]}>
-			<Icon name={href.slice(1) as "links" | "preview" | "profile"} slot="icon" />
+				<Icon name={href.slice(1) as "links" | "preview" | "profile"} slot="icon" />
 				<span slot="text" class="hidden md:block">{name}</span>
 			</LinkNav>
 		{/each}
@@ -50,7 +51,12 @@
 
 {#key data.url}
 	<main in:fly={{ y: 300, duration: 400, delay: 400 }} out:fly={{ y: 300, duration: 400 }}>
-		<slot />
+	{#if $page.url.pathname !== '/preview'}
+		<PhoneView />
+	{/if}
+		<div>
+			<slot />
+		</div>
 	</main>
 {/key}
 
@@ -92,6 +98,19 @@
 			padding: 40px;
 			max-width: 1400px;
 			margin: auto;
+		}
+	}
+
+	@media (min-width: 1440px) {
+		:global(#content-page) {
+			padding: 40px;
+			width: 800px;
+			margin: auto;
+		}
+		main {
+			display: flex;
+			gap: 24px;
+			max-width: 1400px;
 		}
 	}
 </style>
