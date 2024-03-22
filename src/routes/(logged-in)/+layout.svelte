@@ -42,7 +42,11 @@
 		<img src="icons/logo-devlinks-large.svg" alt="logo" class="mr-auto hidden md:block" />
 		{#each links as { href, name }}
 			<LinkNav {href} selected={$page.url.pathname === href} className={classNames[href]}>
-				<Icon name={href.slice(1) as "links" | "preview" | "profile"} slot="icon" />
+				<Icon
+					name={href.slice(1) as "links" | "preview" | "profile"}
+					slot="icon"
+					fill={undefined}
+				/>
 				<span slot="text" class="hidden md:block">{name}</span>
 			</LinkNav>
 		{/each}
@@ -51,9 +55,9 @@
 
 {#key data.url}
 	<main in:fly={{ y: 300, duration: 400, delay: 400 }} out:fly={{ y: 300, duration: 400 }}>
-	{#if $page.url.pathname !== '/preview'}
-		<PhoneView />
-	{/if}
+		{#if $page.url.pathname !== '/preview'}
+			<PhoneView />
+		{/if}
 		<div>
 			<slot />
 		</div>

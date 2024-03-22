@@ -4,10 +4,21 @@
 	import Description from '../../../components/Description.svelte';
 	import EmptyLinksBoard from '../../../components/EmptyLinksBoard.svelte';
 	import LinkInputs from '../../../components/LinkInputs.svelte';
-	import { links } from '../../../stores';
+	import { platforms } from '../../../constants';
+	import { linksData } from '../../../stores';
 
 	const addNewLink = () => {
-		links.update((links) => [...links, { platform: 'github', link: '' }]);
+		$linksData.length >= platforms.length
+			? null
+			: linksData.update((links) => [
+					...links,
+					{
+						platform: platforms.filter((e) => {
+							return links.some((link) => link.platform === e.value) ? false : true;
+						})[0].value,
+						link: ''
+					}
+				]);
 	};
 </script>
 
@@ -17,11 +28,11 @@
 		description="Add/edit/remove links below and then share all your profiles with the world!"
 	/>
 	<Button onClick={addNewLink} color="secondary">+ Add new link</Button>
-	{#if $links.length === 0}
+	{#if $linksData.length === 0}
 		<EmptyLinksBoard />
 	{:else}
 		<div class="flex flex-col gap-6">
-			{#each $links as link, index}
+			{#each $linksData as link, index}
 				<LinkInputs {link} {index} />
 			{/each}
 		</div>

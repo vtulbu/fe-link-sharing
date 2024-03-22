@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { slide } from 'svelte/transition';
-	import { links } from '../stores';
+	import { linksData } from '../stores';
 	import type { Link } from '../types';
 	import InputField from './InputField.svelte';
 	import SelectLinks from './SelectLinks.svelte';
@@ -9,7 +9,7 @@
 	export let index: number;
 
 	let onRemoveClick = (index: number) => {
-		links.update((links) => links.filter((_, i) => i !== index));
+		linksData.update((links) => links.filter((_, i) => i !== index));
 	};
 </script>
 
@@ -20,7 +20,11 @@
 	</p>
 	<button on:click={() => onRemoveClick(index)}>Remove</button>
 	<SelectLinks bind:selected={link.platform} />
-	<InputField placeholder={`e.g. https://www.${link.platform}.com/your-username`} label="Link">
+	<InputField
+		placeholder={`e.g. https://www.${link.platform}.com/your-username`}
+		label="Link"
+		bind:value={link.link}
+	>
 		<img slot="icon" src="/icons/link.svg" alt="link icon" />
 	</InputField>
 </div>

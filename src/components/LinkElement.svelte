@@ -1,9 +1,12 @@
 <script lang="ts">
+	import { slide, fade } from 'svelte/transition';
+
 	export let href = '';
 	export let platformName = '';
+	export let className = '';
 </script>
 
-<a {href} target="_blank">
+<a {href} target="_blank" transition:fade class={className}>
 	<slot name="icon" />
 	{platformName}
 	<img src="icons/icon-arrow-right.svg" alt="link icon" />
@@ -18,8 +21,8 @@
 		border-radius: 8px;
 		background-color: var(--link-color, #000);
 		color: white;
-		min-width: 240px;
-		margin-bottom: 20px;
+		height: var(--height, 45px);
+		width: var(--width, 237px);
 	}
 
 	img {
