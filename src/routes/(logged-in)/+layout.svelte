@@ -6,6 +6,7 @@
 	import { isToastOpen } from '../../stores';
 	import { fly } from 'svelte/transition';
 	import type { LinksKey } from '../../types';
+	import Icon from '../../components/Icon.svelte';
 
 	export let data;
 
@@ -29,20 +30,18 @@
 
 {#if $page.url.pathname === '/preview'}
 	<header in:fly={{ x: 300, duration: 300, delay: 300 }} out:fly={{ x: 400, duration: 300 }}>
-		<!-- <header> -->
 		<LinkNav href="/links" className={'w-[160px] h-[46px] border border-colors-primary-default'}>
 			<span slot="text">Back to Editor</span>
 		</LinkNav>
 		<Button onClick={onClickShareLinkBtn} className={'mb-0 w-[160px]'}>Share Link</Button>
 	</header>
 {:else}
-	<!-- <header> -->
 	<header in:fly={{ x: -300, duration: 300, delay: 300 }} out:fly={{ x: -300, duration: 300 }}>
 		<img src="icons/logo-devlinks-small.svg" alt="logo" class="mr-auto md:hidden" />
 		<img src="icons/logo-devlinks-large.svg" alt="logo" class="mr-auto hidden md:block" />
-		{#each links as { href, icon, name }}
+		{#each links as { href, name }}
 			<LinkNav {href} selected={$page.url.pathname === href} className={classNames[href]}>
-				<svelte:component this={icon} slot="icon" />
+			<Icon name={href.slice(1) as "links" | "preview" | "profile"} slot="icon" />
 				<span slot="text" class="hidden md:block">{name}</span>
 			</LinkNav>
 		{/each}
