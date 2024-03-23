@@ -1,10 +1,22 @@
-<script>
+<script lang="ts">
+	import { browser } from '$app/environment';
 	import '../app.pcss';
+	import { QueryClient, QueryClientProvider } from '@sveltestack/svelte-query';
+
+	const queryClient = new QueryClient({
+		defaultOptions: {
+			queries: {
+				enabled: browser
+			}
+		}
+	});
 </script>
 
-<div>
-	<slot />
-</div>
+<QueryClientProvider client={queryClient}>
+	<div>
+		<slot />
+	</div>
+</QueryClientProvider>
 
 <style>
 	div {

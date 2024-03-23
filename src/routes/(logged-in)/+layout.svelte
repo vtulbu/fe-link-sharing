@@ -3,11 +3,12 @@
 	import { page } from '$app/stores';
 	import { links } from '../../constants';
 	import Button from '../../components/Button.svelte';
-	import { isToastOpen } from '../../stores';
+	import { isToastOpen, profileData } from '../../stores';
 	import { fly } from 'svelte/transition';
 	import type { LinksKey } from '../../types';
 	import Icon from '../../components/Icon.svelte';
 	import PhoneView from '../../components/PhoneView.svelte';
+	import { onMount } from 'svelte';
 
 	export let data;
 
@@ -27,6 +28,15 @@
 
 		return () => clearTimeout(id);
 	};
+
+	onMount(() => {
+		profileData.update((data) => {
+			data.firstName = $page.data.session?.user?.firstName || '';
+			data.lastName = $page.data.session?.user?.lastName || '';
+			data.email = $page.data.session?.user?.email || '';
+			return data;
+		});
+	});
 </script>
 
 {#if $page.url.pathname === '/preview'}

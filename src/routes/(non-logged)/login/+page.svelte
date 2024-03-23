@@ -7,6 +7,8 @@
 
 	let email = '';
 	let password = '';
+
+	$: isLoading = false;
 </script>
 
 <NonLoggedText heading="Login" subheading="Add your details below to get back into the app" />
@@ -25,14 +27,21 @@
 
 <Button
 	onClick={() => {
+		isLoading = true;
 		signIn('credentials', {
 			email,
 			password,
 			redirect: false
 		}).then(() => {
-			location.href = '/links';
+			const id = setTimeout(() => {
+				window.location.href = '/links';
+			}, 1000);
+
+			return () => clearTimeout(id);
 		});
-	}}>Login</Button
+	}}
 >
+	{isLoading ? 'Loading...' : 'Login'}
+</Button>
 
 <ActionText href="/create-account" text="Don’t have an account?" link="Create account" />

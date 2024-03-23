@@ -20,5 +20,7 @@ export const load = async (event) => {
 		return redirect(303, '/links');
 	}
 
-	return {};
+	return {
+		session
+	};
 };
